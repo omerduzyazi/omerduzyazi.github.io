@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Temel Ödevi</title>
-   <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
-    <div class="main-container">
+    <div class="wrapper">
         <header>
-            <div class="header-nav">
+            <div class="nav-container">
                 <h1>CSS Temel Ödevi</h1>
                 <nav>
                     <ul>
@@ -21,28 +21,32 @@
                     </ul>
                 </nav>
             </div>
-            <p class="intro">
+            <p class="intro-p">
                 Verilen benzer bir düzenle basit bir web sayfası oluşturun. CSS’in temel özelliklerini uygulayın. 
-                Sadece HTML5 + CSS3 kullanın, hazır framework kullanmak yasak. [cite: 2, 10]
+                Sadece HTML5 + CSS3 kullanın, hazır framework kullanmak yasak[cite: 1, 10].
             </p>
         </header>
 
-        <main class="content-flex">
-            <section class="box content-left">
-                <h2>İçerik</h2>
-                <p>Bu alanda örnek içerik metinleri bulunmaktadır. Css özellikleriyle bu metinler arasında <strong>boşluklar</strong> (line-height) ve hizalamalar (text-align) düzenlerleriz. [cite: 7]</p>
-                <p>Önce CSS ile kutuları / alanları yan yana getirmeyi, ardından alt alta yerleştirmeyi öğrendik. Şimdi ise CSS seçicilerini kullanacağız. [cite: 6]</p>
+        <main class="content-columns">
+            <section class="card content-card">
+                <div class="card-header">İçerik</div>
+                <div class="card-body">
+                    <p>Bu alanda örnek içerik metinleri bulunmaktadır. Css özellikleriyle bu metinler arasında <strong>boşluklar</strong> (line-height) ve hizalamalar (text-align) düzenlerleriz[cite: 7].</p>
+                    <p>Önce CSS ile kutuları / alanları yan yana getirmeyi, ardından alt alta yerleştirmeyi öğrendik[cite: 6]. Şimdi ise CSS seçicilerini kullanacağız.</p>
+                </div>
             </section>
 
-            <aside class="box sidebar-right">
-                <h2>Yan Menü / Bilgi</h2>
-                <p>Bu alan yan menü veya bilgi kısmıdır. CSS ile genişlik (width), yükseklik (height), kenar boşlukları (margin/padding) ve kenarlık (border) özelliklerini kullanarak düzenleyebiliriz. [cite: 6]</p>
-                <p>Öğrendiklerimizi hiyerarşik ve grup seçicilerle uygulayıp farklı bölümlere stil verebiliriz. [cite: 9]</p>
+            <aside class="card sidebar-card">
+                <div class="card-header">Yan Menü / Bilgi</div>
+                <div class="card-body">
+                    <p>Bu alan yan menü veya bilgi kısmıdır. CSS ile genişlik (width), yükseklik (height), kenar boşlukları (margin/padding) ve kenarlık (border) özelliklerini kullanarak düzenleyebiliriz[cite: 6].</p>
+                    <p>Öğrendiklerimizi hiyerarşik ve grup seçicilerle uygulayıp farklı bölümlere stil verebiliriz[cite: 9].</p>
+                </div>
             </aside>
         </main>
 
         <footer>
-            <p>&copy; 2026 CSS Temel Örnek. Bu sayfa basit bir HTML+CSS alıştırmasıdır. [cite: 8]</p>
+            <p>&copy; 2026 CSS Temel Örnek. Bu sayfa basit bir HTML+CSS alıştırmasıdır[cite: 8].</p>
         </footer>
     </div>
 
