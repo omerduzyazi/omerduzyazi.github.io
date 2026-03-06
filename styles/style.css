@@ -1,62 +1,126 @@
+/* Grup Seçici (H1, H2 ve Footer metni için ortak stil)  */
+h1, .box-header, footer p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f9;
+    background-color: #f0f2f5;
     margin: 0;
-    padding: 0;
-    line-height: 1.6;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
 }
 
+.outer-container {
+    background-color: #f8f9fa;
+    width: 900px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Header ve Navigasyon Tasarımı */
 header {
-    background-color: #1e293b;
-    color: white;
     padding: 20px;
-    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    background-color: #ebf1f7;
 }
 
-nav {
-    background-color: #334155;
-    padding: 10px;
-    text-align: center;
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav a {
-    color: white;
+/* Hiyerarşik Seçici 1: Menü yapısı  */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block; /* Menüyü yatay yapar [cite: 3] */
+}
+
+nav ul li a {
     text-decoration: none;
-    margin: 0 15px;
+    color: #444;
+    padding: 5px 12px;
+    font-size: 14px;
+    transition: 0.3s; /* Hover efekti geçişi [cite: 4] */
+}
+
+/* Hover Efekti [cite: 4] */
+nav ul li a:hover {
+    color: #007bff;
+}
+
+.btn-active {
+    background-color: #8da9d6;
+    color: white !important;
+    border-radius: 4px;
+}
+
+.header-desc {
+    margin-top: 20px;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* İki Sütunlu Yerleşim [cite: 6] */
+.columns {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    width: 50%; /* Kutuları yan yana getirir [cite: 6] */
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.box-header {
+    padding: 10px 15px;
     font-weight: bold;
+    font-size: 18px;
 }
 
-nav a:hover {
-    color: #38bdf8;
+/* Hiyerarşik Seçici 2: Kutu içindeki paragraflar  */
+.box-body p {
+    font-size: 14px; /* Metin düzenleme özelliği 1  */
+    color: #444;    /* Metin düzenleme özelliği 2  */
+    line-height: 1.6; /* Metin düzenleme özelliği 3  */
+    text-align: left;
+    margin-bottom: 10px;
 }
 
-main {
-    padding: 30px;
-    max-width: 900px;
-    margin: auto;
-    background-color: white;
-    min-height: 400px;
+/* Görseldeki Özel Renkler  */
+.content-box {
+    background-color: #fff9e6; /* Sarı tonu */
+    border-color: #f2e1a1;
 }
 
-h1, h2 {
-    color: #1e293b;
+.sidebar-box {
+    background-color: #e9f4f9; /* Mavi tonu */
+    border-color: #c5dce7;
 }
 
-blockquote {
-    background-color: #f1f5f9;
-    padding: 15px;
-    border-left: 5px solid #38bdf8;
-    margin: 20px 0;
-    font-style: italic;
-}
+.content-box .box-header { border-bottom: 1px solid #f2e1a1; }
+.sidebar-box .box-header { border-bottom: 1px solid #c5dce7; }
 
-ul, ol {
-    margin-left: 20px;
-}
+.box-body { padding: 15px; }
 
+/* Footer */
 footer {
-    background-color: #1e293b;
-    color: white;
     text-align: center;
     padding: 15px;
+    border-top: 1px solid #dee2e6;
+    background-color: #f1f3f5;
 }
+
+footer p { font-size: 13px; color: #777; }
