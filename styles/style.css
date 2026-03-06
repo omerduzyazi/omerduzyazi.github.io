@@ -1,6 +1,6 @@
-/* Grup Seçici (H1, H2 ve Footer için ortak stil) [cite: 9] */
-h1, h2, footer p {
-    font-family: Arial, sans-serif;
+/* Grup Seçici: h1 ve footer metni için ortak stil [cite: 9] */
+h1, footer p {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     color: #333;
 }
 
@@ -10,41 +10,40 @@ body {
     padding: 20px;
 }
 
-.main-container {
+.wrapper {
     max-width: 1000px;
     margin: 0 auto;
     background-color: #fff;
     border: 1px solid #ddd;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Header ve Menü Ayarları */
+/* Header ve Menü Ayarları [cite: 3, 5] */
 header {
     background-color: #ebf1f7;
-    padding: 20px;
+    padding: 25px;
     border-bottom: 1px solid #dee2e6;
 }
 
-.header-nav {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Hiyerarşik Seçici (Menü linkleri için) [cite: 3, 9] */
+/* Hiyerarşik Seçici: Menü elemanları için [cite: 9] */
 nav ul li {
     display: inline-block; /* Menüyü yatay yapar [cite: 3] */
-    margin-left: 10px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #555;
-    padding: 6px 12px;
+    color: #444;
+    padding: 8px 15px;
     font-size: 14px;
+    transition: 0.3s; /* Hover efekti geçişi [cite: 4] */
 }
 
-/* Hover Efekti [cite: 4] */
 nav ul li a:hover {
     color: #007bff;
 }
@@ -55,33 +54,45 @@ nav ul li a:hover {
     border-radius: 4px;
 }
 
-/* İki Sütun Düzeni [cite: 6] */
-.content-flex {
+/* İki Sütunlu Yan Yana Düzen [cite: 6] */
+.content-columns {
     display: flex;
     padding: 20px;
     gap: 20px;
 }
 
-.box {
-    width: 50%; /* Kutuları yan yana getirir */
-    padding: 15px;
-    border-radius: 5px;
+.card {
+    width: 50%;
     border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-/* Metin Düzenlemeleri (En az 3 farklı özellik) [cite: 7] */
-.box p {
-    font-size: 14px;      /* 1. Özellik */
-    line-height: 1.8;    /* 2. Özellik */
-    color: #444;         /* 3. Özellik */
+.card-header {
+    padding: 12px 15px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Metin Düzenleme Özellikleri [cite: 7] */
+.card-body p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
     text-align: left;
 }
 
-/* Özel Renkler  */
-.content-left { background-color: #fff9e6; border-color: #f2e1a1; }
-.sidebar-right { background-color: #e9f4f9; border-color: #c5dce7; }
+/* Görseldeki Özel Renkler */
+.content-card { background-color: #fff9e6; border-color: #f2e1a1; } /* Sarı tonu */
+.sidebar-card { background-color: #e9f4f9; border-color: #c5dce7; } /* Mavi tonu */
 
-/* Footer [cite: 8] */
+.content-card .card-header { border-bottom: 1px solid #f2e1a1; }
+.sidebar-card .card-header { border-bottom: 1px solid #c5dce7; }
+
+.card-body { padding: 15px; }
+
+/* Footer Bölümü [cite: 8] */
 footer {
     text-align: center;
     padding: 15px;
