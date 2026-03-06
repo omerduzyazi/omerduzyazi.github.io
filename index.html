@@ -3,40 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Sayfa</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <title>CSS Temel Ödevi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Omer Can Duzyazi</h1>
-    <p>Kisisel Tanitim ve Mini Portfolyo Sitesi</p>
-</header>
+    <div class="outer-container">
+        <header>
+            <div class="top-bar">
+                <h1>CSS Temel Ödevi</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="btn-active">Ana Sayfa</a></li>
+                        <li><a href="#">Hakkında</a></li>
+                        <li><a href="#">Hizmetler</a></li>
+                        <li><a href="#">İletişim</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <p class="header-desc">
+                Verilen benzer bir düzenle basit bir web sayfası oluşturun. CSS'in temel özelliklerini (display, width, height, margin, padding, border, selector) uygulayın. Sadece HTML5 + CSS3 kullanın, hazır framework kullanmak yasak (Bootstrap, Tailwind vb.).
+            </p>
+        </header>
 
-<nav>
-    <a href="index.html">Ana Sayfa</a> |
-    <a href="about.html">Hakkimda</a> |
-    <a href="interests.html">Ilgi Alanlarim</a> |
-    <a href="contact.html">Iletisim</a>
-</nav>
+        <main class="columns">
+            <section class="box content-box">
+                <div class="box-header">İçerik</div>
+                <div class="box-body">
+                    <p>Bu alanda örnek içerik metinleri bulunmaktadır. Css özellikleriyle bu metinler arasında <strong>boşluklar</strong> (line-height) ve hizalamalar (text-align) düzenlerleriz.</p>
+                    <p>Önce CSS ile kutuları / alanları yan yana getirmeyi, ardından alt alta yerleştirmeyi öğrendik. Şimdi ise CSS seçicilerini kullanarak <strong>grup</strong> ve hiyerarşik seçimler yapmayı göreceğiz.</p>
+                </div>
+            </section>
 
-<hr>
+            <aside class="box sidebar-box">
+                <div class="box-header">Yan Menü / Bilgi</div>
+                <div class="box-body">
+                    <p>Bu alan yan menü veya bilgi kısmıdır. CSS ile genişlik (width), yükseklik (height), kenar boşlukları (margin/padding) ve kenarlık (border) özelliklerini kullanarak düzenleyebiliriz.</p>
+                    <p>Öğrendiklerimizi hiyerarşik ve grup seçicilerle uygulayıp farklı bölümlere stil verebiliriz.</p>
+                </div>
+            </aside>
+        </main>
 
-<main>
-    <p>Web siteme hos geldiniz. Bu site Web Programlama dersi icin hazirlanmistir.</p>
-
-    <h2 id="hedef">Hedeflerim</h2>
-    <p>Frontend ve backend alaninda kendimi gelistirerek profesyonel yazilim gelistirici olmak istiyorum.</p>
-
-    <h2>Hizli Baglantilar</h2>
-    <p><a href="#hedef">Hedeflerime Git</a></p>
-</main>
-
-<hr>
-
-<footer>
-    <p>� 2026 Omer Can Duzyazi</p>
-</footer>
+        <footer>
+            <p>&copy; 2026 CSS Temel Örnek. Bu sayfa basit bir HTML+CSS alıştırmasıdır.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
