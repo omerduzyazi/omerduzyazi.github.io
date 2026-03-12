@@ -18,40 +18,49 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Header ve Menü Ayarları [cite: 3, 5] */
-header {
-    background-color: #ebf1f7;
-    padding: 25px;
-    border-bottom: 1px solid #dee2e6;
+/* Header ve Menü Ayarları */
+.top-nav {
+    background-color: #2c3e50;
+    padding: 15px 0;
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.top-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-/* Hiyerarşik Seçici: Menü elemanları için [cite: 9] */
-nav ul li {
-    display: inline-block; /* Menüyü yatay yapar [cite: 3] */
+/* Hiyerarşik Seçici: Menü elemanları için */
+.top-nav ul li {
+    display: inline-block;
 }
 
-nav ul li a {
+.top-nav ul li a {
     text-decoration: none;
-    color: #444;
-    padding: 8px 15px;
-    font-size: 14px;
-    transition: 0.3s; /* Hover efekti geçişi [cite: 4] */
+    color: #ecf0f1;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #007bff;
+.top-nav ul li a:hover {
+    background-color: #34495e;
+    color: #f39c12;
+    border-radius: 4px;
 }
 
-.active {
-    background-color: #8da9d6;
+.top-nav .active {
+    background-color: #1abc9c;
     color: white !important;
     border-radius: 4px;
+}
+
+.main-header {
+    background-color: #ebf1f7;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
 }
 
 /* İki Sütunlu Yan Yana Düzen [cite: 6] */
