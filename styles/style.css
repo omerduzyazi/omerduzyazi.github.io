@@ -220,3 +220,264 @@ footer {
     background-color: #c82333;
 }
 
+/* ========================================
+   FLEXBOX LAB SAYFASI STİLLERİ
+   ======================================== */
+
+/* Ana Wrapper: 100vh, flex column */
+.flexbox-wrapper {
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Navbar: 10vh, space-between, center */
+.flexbox-nav {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.flexbox-nav ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+}
+
+.flexbox-nav ul li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.flexbox-nav ul li a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 25px;
+}
+
+/* Hero: 30vh, row, space-between, stretch */
+.flex-hero {
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 2vh 4vw;
+    gap: 3vw;
+    background-color: #ebf1f7;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.flex-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.flex-hero-text h1 {
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 1vh;
+    line-height: 1.3;
+}
+
+.flex-hero-text p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 2vh;
+    max-width: 480px;
+}
+
+.flex-hero-btn {
+    align-self: flex-start;
+    padding: 10px 28px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.flex-hero-btn:hover {
+    background-color: #16a085;
+}
+
+.flex-hero-visual {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+.flex-visual-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 2px dashed #bdc3c7;
+    border-radius: 8px;
+    gap: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.flex-visual-placeholder:hover {
+    border-color: #1abc9c;
+}
+
+.flex-visual-icon {
+    font-size: 2.5rem;
+}
+
+.flex-visual-label {
+    color: #7f8c8d;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Kartlar: 30vh, flex-wrap, gap */
+.flex-cards-section {
+    height: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 2vh 4vw;
+    align-items: stretch;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.flex-card {
+    flex: 1 1 14%;
+    min-width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1.5vh 1vw;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.flex-card:hover {
+    transform: translateY(-3px);
+    border-color: #1abc9c;
+    box-shadow: 0 4px 15px rgba(26, 188, 156, 0.15);
+    background-color: #fff;
+}
+
+.flex-card-icon {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+}
+
+.flex-card h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 2px;
+}
+
+.flex-card p {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* Flex Grow: 20vh, row, stretch, 1-2-1 */
+.flex-grow-section {
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 12px;
+    padding: 2vh 4vw;
+    background-color: #ecf0f1;
+}
+
+.flex-grow-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+    background-color: #2c3e50;
+    border: 1px solid #34495e;
+}
+
+.flex-grow-2 {
+    flex-grow: 2;
+    background-color: #1abc9c;
+    border: 1px solid #16a085;
+}
+
+.flex-grow-3 {
+    flex-grow: 1;
+    background-color: #2c3e50;
+    border: 1px solid #34495e;
+}
+
+.flex-grow-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.flex-grow-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.flex-grow-value {
+    font-size: 12px;
+    color: #ecf0f1;
+    font-family: 'Courier New', monospace;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+/* Footer: 10vh, center, center */
+.flex-footer {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c3e50;
+    border-top: none;
+}
+
+.flex-footer p {
+    color: #ecf0f1;
+    font-size: 14px;
+}
+

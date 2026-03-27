@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Lab - Ömer Can Düzyazı</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <div class="wrapper flexbox-wrapper">
+
+        <!-- 1) Navbar - 10vh -->
+        <nav class="top-nav flexbox-nav">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkımda</a></li>
+                <li><a href="interests.html">İlgi Alanlarım</a></li>
+                <li><a href="contacts.html">İletişim</a></li>
+                <li><a href="flexbox.html" class="active">Flexbox</a></li>
+            </ul>
+        </nav>
+
+        <!-- 2) Hero - 30vh, İki Kolon -->
+        <section class="flex-hero">
+            <div class="flex-hero-text">
+                <h1>Merhaba, Ben Ömer Can Düzyazı</h1>
+                <p>Yazılım geliştirme yolculuğuma devam eden, modern web teknolojilerine tutkulu bir öğrenci ve geliştiriciyim. HTML, CSS ve JavaScript ile projeler üretiyorum.</p>
+                <a href="about.html" class="flex-hero-btn">Hakkımda →</a>
+            </div>
+            <div class="flex-hero-visual">
+                <div class="flex-visual-placeholder">
+                    <span class="flex-visual-icon">👨‍💻</span>
+                    <span class="flex-visual-label">Ömer Can Düzyazı</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3) Kartlar Bölümü - 30vh, Yeteneklerim -->
+        <section class="flex-cards-section">
+            <div class="flex-card">
+                <span class="flex-card-icon">🌐</span>
+                <h3>HTML5</h3>
+                <p>Semantik web yapıları</p>
+            </div>
+            <div class="flex-card">
+                <span class="flex-card-icon">🎨</span>
+                <h3>CSS3</h3>
+                <p>Modern tasarım &amp; Flexbox</p>
+            </div>
+            <div class="flex-card">
+                <span class="flex-card-icon">⚡</span>
+                <h3>JavaScript</h3>
+                <p>Dinamik web uygulamaları</p>
+            </div>
+            <div class="flex-card">
+                <span class="flex-card-icon">🗄️</span>
+                <h3>Veritabanı</h3>
+                <p>SQL &amp; NoSQL sistemleri</p>
+            </div>
+            <div class="flex-card">
+                <span class="flex-card-icon">🐍</span>
+                <h3>Python</h3>
+                <p>Backend geliştirme</p>
+            </div>
+            <div class="flex-card">
+                <span class="flex-card-icon">🔧</span>
+                <h3>Node.js</h3>
+                <p>Sunucu tarafı çözümler</p>
+            </div>
+        </section>
+
+        <!-- 4) Flex Grow Uygulama - 20vh -->
+        <section class="flex-grow-section">
+            <div class="flex-grow-box flex-grow-1">
+                <span class="flex-grow-label">🎓 Eğitim</span>
+                <span class="flex-grow-value">Bilgisayar Programcılığı</span>
+            </div>
+            <div class="flex-grow-box flex-grow-2">
+                <span class="flex-grow-label">💻 Uzmanlık</span>
+                <span class="flex-grow-value">Web Programlama &amp; Geliştirme</span>
+            </div>
+            <div class="flex-grow-box flex-grow-3">
+                <span class="flex-grow-label">🎯 Hedef</span>
+                <span class="flex-grow-value">Başarılı Bir Geliştirici</span>
+            </div>
+        </section>
+
+        <!-- 5) Footer - 10vh -->
+        <footer class="flex-footer">
+            <p>&copy; 2026 Ömer Can Düzyazı - Kişisel Portfolyo</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
