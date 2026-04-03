@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position Lab - Ömer Can Düzyazı</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <nav class="top-nav">
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="interests.html">İlgi Alanlarım</a></li>
+            <li><a href="contacts.html">İletişim</a></li>
+            <li><a href="flexbox.html">Flexbox</a></li>
+            <li><a href="lab-position.html" class="active">Position</a></li>
+        </ul>
+    </nav>
+
+    <!-- Kısa başlık alanı -->
+    <header class="main-header position-page-header">
+        <h1>Kampüs Etkinlik Duyurusu</h1>
+        <p class="intro-p">Üniversitemizde düzenlenen özel etkinlikleri takip edin.</p>
+    </header>
+
+    <!-- Ana içerik alanı -->
+    <main class="position-main">
+
+        <!-- Tek büyük duyuru kartı - position: relative kapsayıcı -->
+        <div class="announcement-card">
+
+            <!-- position: absolute öğe 1 - Tarih rozeti -->
+            <div class="badge badge-date">
+                📅 15 Nisan 2026
+            </div>
+
+            <!-- position: absolute öğe 2 - Kategori etiketi -->
+            <div class="badge badge-category">
+                🎓 Teknoloji
+            </div>
+
+            <!-- position: absolute öğe 3 - "Yeni" badge (z-index ile üstte, pulse animasyonu) -->
+            <div class="badge badge-new">
+                YENİ
+            </div>
+
+            <!-- Kart içeriği -->
+            <div class="card-content">
+                <h2 class="card-title">Yazılım Geliştirme Zirvesi 2026</h2>
+                <p class="card-description">
+                    Üniversitemiz Bilgisayar Mühendisliği Bölümü tarafından düzenlenen
+                    <strong>Yazılım Geliştirme Zirvesi</strong>, sektörün önde gelen
+                    isimlerini kampüsümüzde ağırlıyor. Yapay zeka, web teknolojileri,
+                    mobil uygulama geliştirme ve bulut bilişim konularında atölye çalışmaları
+                    ve panel oturumları gerçekleştirilecektir.
+                </p>
+
+                <div class="card-details">
+                    <div class="detail-item detail-location">
+                        <span class="detail-icon">📍</span>
+                        <span>Merkez Kampüs - Konferans Salonu</span>
+                    </div>
+                    <div class="detail-item detail-time">
+                        <span class="detail-icon">🕐</span>
+                        <span>09:00 - 17:00</span>
+                    </div>
+                    <div class="detail-item detail-speaker">
+                        <span class="detail-icon">🎤</span>
+                        <span>12+ Konuşmacı</span>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <a href="#" class="action-btn btn-register">Kayıt Ol</a>
+                    <a href="#" class="action-btn btn-details">Detaylar</a>
+                </div>
+            </div>
+
+            <!-- position: absolute öğe 4 - Dekoratif köşe süsü (z-index kullanımı) -->
+            <div class="corner-decoration">⭐</div>
+        </div>
+
+    </main>
+
+    <!-- Alt bilgi / footer -->
+    <footer>
+        <p>&copy; 2026 Ömer Can Düzyazı - Kişisel Portfolyo</p>
+    </footer>
+</div>
+
+<!-- position: fixed öğe - Yukarı çık butonu -->
+<a href="#" class="scroll-top-btn">↑</a>
+
+</body>
+</html>
