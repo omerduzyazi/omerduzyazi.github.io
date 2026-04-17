@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birim Dönüştürücü - Ömer Can Düzyazı</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .app-container {
+            max-width: 620px;
+            margin: 40px auto;
+            padding: 40px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .app-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 1.7em;
+            margin-bottom: 8px;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        .app-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        /* Sekme seçici */
+        .tab-group {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 28px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background-color: #f8f9fa;
+            color: #555;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        /* Panel */
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .form-group-app {
+            margin-bottom: 18px;
+        }
+
+        .form-group-app label {
+            display: block;
+            margin-bottom: 7px;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+
+        .input-row input[type="text"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        .input-row input[type="text"]:focus {
+            outline: none;
+            border-color: #1abc9c;
+            box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.15);
+            background-color: #fff;
+        }
+
+        .input-row select {
+            padding: 12px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            background-color: #fafafa;
+            color: #333;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-row select:focus {
+            outline: none;
+            border-color: #1abc9c;
+        }
+
+        .arrow-icon {
+            text-align: center;
+            font-size: 24px;
+            color: #1abc9c;
+            margin: 10px 0;
+        }
+
+        .btn-convert {
+            width: 100%;
+            padding: 14px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 8px;
+        }
+
+        .btn-convert:hover {
+            background-color: #16a085;
+        }
+
+        .btn-convert:active {
+            transform: scale(0.98);
+        }
+
+        .result-card {
+            display: none;
+            margin-top: 24px;
+            padding: 20px 24px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+            text-align: center;
+        }
+
+        .result-card .result-label {
+            font-size: 13px;
+            color: #bdc3c7;
+            margin-bottom: 6px;
+        }
+
+        .result-card .result-value-big {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #1abc9c;
+            margin-bottom: 4px;
+        }
+
+        .result-card .result-formula {
+            font-size: 12px;
+            color: #95a5a6;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .error-msg {
+            display: none;
+            margin-top: 15px;
+            padding: 12px 16px;
+            background-color: #fdecea;
+            border: 1px solid #f5c6cb;
+            border-radius: 6px;
+            color: #c0392b;
+            font-size: 14px;
+        }
+
+        /* Hızlı dönüşüm referans tablosu */
+        .ref-table {
+            margin-top: 28px;
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .ref-table th {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .ref-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+
+        .ref-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .ref-table tr:nth-child(even) td {
+            background-color: #f8f9fa;
+        }
+
+        .ref-title {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav class="top-nav">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkımda</a></li>
+                <li><a href="interests.html">İlgi Alanlarım</a></li>
+                <li><a href="contacts.html">İletişim</a></li>
+                <li><a href="flexbox.html">Flexbox</a></li>
+                <li><a href="lab-position.html">Position</a></li>
+                <li><a href="not-hesaplama.html">Not Hesaplama</a></li>
+                <li><a href="birim-donusturucu.html" class="active">Birim Dönüştürücü</a></li>
+            </ul>
+        </nav>
+
+        <header class="main-header">
+            <h1>Birim Dönüştürücü</h1>
+            <p class="intro-p">Mühendislik birimlerini kolayca dönüştürün — Sıcaklık ve Uzunluk.</p>
+        </header>
+
+        <main style="padding: 20px;">
+            <div class="app-container">
+                <h2 class="app-title">⚙️ Birim Dönüştürücü</h2>
+                <p class="app-subtitle">Uygulama-2 — Sıcaklık & Uzunluk Dönüştürücü</p>
+
+                <!-- Sekme butonları -->
+                <div class="tab-group">
+                    <button class="tab-btn active" id="tabSicaklik" onclick="switchTab('sicaklik')">🌡️
+                        Sıcaklık</button>
+                    <button class="tab-btn" id="tabUzunluk" onclick="switchTab('uzunluk')">📏 Uzunluk</button>
+                </div>
+
+                <!-- Sıcaklık Paneli -->
+                <div class="tab-panel active" id="panelSicaklik">
+                    <div class="form-group-app">
+                        <label>Değer ve Kaynak Birim:</label>
+                        <div class="input-row">
+                            <input type="text" id="sicaklikDeger" placeholder="Örn: 100">
+                            <select id="sicaklikKaynak">
+                                <option value="C">°C — Celsius</option>
+                                <option value="F">°F — Fahrenheit</option>
+                                <option value="K">K — Kelvin</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="arrow-icon">⬇️</div>
+
+                    <div class="form-group-app">
+                        <label>Hedef Birim:</label>
+                        <div class="input-row">
+                            <select id="sicaklikHedef" style="flex:1; padding:12px 10px;">
+                                <option value="C">°C — Celsius</option>
+                                <option value="F">°F — Fahrenheit</option>
+                                <option value="K">K — Kelvin</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-convert" onclick="sicaklikDonustur()">🔄 Dönüştür</button>
+
+                    <div class="error-msg" id="sicaklikHata"></div>
+                    <div class="result-card" id="sicaklikSonuc">
+                        <div class="result-label" id="sicaklikSonucLabel">Sonuç</div>
+                        <div class="result-value-big" id="sicaklikSonucDeger"></div>
+                        <div class="result-formula" id="sicaklikFormul"></div>
+                    </div>
+
+                    <p class="ref-title">📌 Hızlı Referans: Önemli Sıcaklık Değerleri</p>
+                    <table class="ref-table">
+                        <thead>
+                            <tr>
+                                <th>Durum</th>
+                                <th>Celsius (°C)</th>
+                                <th>Fahrenheit (°F)</th>
+                                <th>Kelvin (K)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Suyun Donma Noktası</td>
+                                <td>0</td>
+                                <td>32</td>
+                                <td>273.15</td>
+                            </tr>
+                            <tr>
+                                <td>Vücut Sıcaklığı</td>
+                                <td>37</td>
+                                <td>98.6</td>
+                                <td>310.15</td>
+                            </tr>
+                            <tr>
+                                <td>Suyun Kaynama Noktası</td>
+                                <td>100</td>
+                                <td>212</td>
+                                <td>373.15</td>
+                            </tr>
+                            <tr>
+                                <td>Mutlak Sıfır</td>
+                                <td>-273.15</td>
+                                <td>-459.67</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Uzunluk Paneli -->
+                <div class="tab-panel" id="panelUzunluk">
+                    <div class="form-group-app">
+                        <label>Değer ve Kaynak Birim:</label>
+                        <div class="input-row">
+                            <input type="text" id="uzunlukDeger" placeholder="Örn: 5">
+                            <select id="uzunlukKaynak">
+                                <option value="m">m — Metre</option>
+                                <option value="km">km — Kilometre</option>
+                                <option value="mi">mi — Mil</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="arrow-icon">⬇️</div>
+
+                    <div class="form-group-app">
+                        <label>Hedef Birim:</label>
+                        <div class="input-row">
+                            <select id="uzunlukHedef" style="flex:1; padding:12px 10px;">
+                                <option value="m">m — Metre</option>
+                                <option value="km">km — Kilometre</option>
+                                <option value="mi">mi — Mil</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-convert" onclick="uzunlukDonustur()">🔄 Dönüştür</button>
+
+                    <div class="error-msg" id="uzunlukHata"></div>
+                    <div class="result-card" id="uzunlukSonuc">
+                        <div class="result-label" id="uzunlukSonucLabel">Sonuç</div>
+                        <div class="result-value-big" id="uzunlukSonucDeger"></div>
+                        <div class="result-formula" id="uzunlukFormul"></div>
+                    </div>
+
+                    <p class="ref-title">📌 Hızlı Referans: Uzunluk Dönüşümleri</p>
+                    <table class="ref-table">
+                        <thead>
+                            <tr>
+                                <th>Kaynak</th>
+                                <th>Hedef</th>
+                                <th>Çarpan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 Kilometre</td>
+                                <td>Metre</td>
+                                <td>1,000 m</td>
+                            </tr>
+                            <tr>
+                                <td>1 Mil</td>
+                                <td>Kilometre</td>
+                                <td>1.60934 km</td>
+                            </tr>
+                            <tr>
+                                <td>1 Mil</td>
+                                <td>Metre</td>
+                                <td>1,609.34 m</td>
+                            </tr>
+                            <tr>
+                                <td>1 Metre</td>
+                                <td>Kilometre</td>
+                                <td>0.001 km</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Ömer Can Düzyazı - Kişisel Portfolyo</p>
+        </footer>
+    </div>
+
+    <script>
+        // ----- Sekme değiştirme -----
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+            document.getElementById('panel' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+            document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+        }
+
+        // ----- Sıcaklık Dönüşümü -----
+        function sicaklikDonustur() {
+            const degerStr = document.getElementById('sicaklikDeger').value.trim();
+            const kaynak = document.getElementById('sicaklikKaynak').value;
+            const hedef = document.getElementById('sicaklikHedef').value;
+            const hataEl = document.getElementById('sicaklikHata');
+            const sonucEl = document.getElementById('sicaklikSonuc');
+
+            hataEl.style.display = 'none';
+            sonucEl.style.display = 'none';
+
+            const deger = parseFloat(degerStr);
+            if (isNaN(deger)) {
+                hataEl.textContent = '⚠️ Lütfen geçerli bir sayı girin.';
+                hataEl.style.display = 'block';
+                return;
+            }
+
+            if (kaynak === hedef) {
+                sonuc = deger;
+                document.getElementById('sicaklikSonucLabel').textContent = `${birimAd(kaynak)} → ${birimAd(hedef)}`;
+                document.getElementById('sicaklikSonucDeger').textContent = `${sonuc.toFixed(4)} ${birimSymbol(hedef)}`;
+                document.getElementById('sicaklikFormul').textContent = 'Aynı birim — dönüşüm yapılmadı.';
+                sonucEl.style.display = 'block';
+                return;
+            }
+
+            // Önce Celsius'a çevir
+            let celsius;
+            let formulKaynak = '';
+            if (kaynak === 'C') { celsius = deger; formulKaynak = `${deger}°C`; }
+            else if (kaynak === 'F') { celsius = (deger - 32) * 5 / 9; formulKaynak = `(${deger} - 32) × 5/9`; }
+            else if (kaynak === 'K') { celsius = deger - 273.15; formulKaynak = `${deger} - 273.15`; }
+
+            // Celsius'tan hedefe çevir
+            let sonuc;
+            let formulHedef = '';
+            if (hedef === 'C') { sonuc = celsius; formulHedef = `= ${sonuc.toFixed(4)}°C`; }
+            else if (hedef === 'F') { sonuc = celsius * 9 / 5 + 32; formulHedef = `${celsius.toFixed(4)} × 9/5 + 32`; }
+            else if (hedef === 'K') { sonuc = celsius + 273.15; formulHedef = `${celsius.toFixed(4)} + 273.15`; }
+
+            document.getElementById('sicaklikSonucLabel').textContent = `${birimAd(kaynak)} → ${birimAd(hedef)}`;
+            document.getElementById('sicaklikSonucDeger').textContent = `${sonuc.toFixed(4)} ${birimSymbol(hedef)}`;
+            document.getElementById('sicaklikFormul').textContent = `Formül: ${formulKaynak} → ${formulHedef} = ${sonuc.toFixed(4)} ${birimSymbol(hedef)}`;
+            sonucEl.style.display = 'block';
+        }
+
+        // ----- Uzunluk Dönüşümü -----
+        function uzunlukDonustur() {
+            const degerStr = document.getElementById('uzunlukDeger').value.trim();
+            const kaynak = document.getElementById('uzunlukKaynak').value;
+            const hedef = document.getElementById('uzunlukHedef').value;
+            const hataEl = document.getElementById('uzunlukHata');
+            const sonucEl = document.getElementById('uzunlukSonuc');
+
+            hataEl.style.display = 'none';
+            sonucEl.style.display = 'none';
+
+            const deger = parseFloat(degerStr);
+            if (isNaN(deger) || deger < 0) {
+                hataEl.textContent = '⚠️ Lütfen geçerli pozitif bir sayı girin.';
+                hataEl.style.display = 'block';
+                return;
+            }
+
+            // Metreye çevir
+            const metre = { m: 1, km: 1000, mi: 1609.344 };
+            const metreValue = deger * metre[kaynak];
+            const sonuc = metreValue / metre[hedef];
+
+            const bKaynak = birimUzunlukAd(kaynak);
+            const bHedef = birimUzunlukAd(hedef);
+
+            document.getElementById('uzunlukSonucLabel').textContent = `${bKaynak} → ${bHedef}`;
+            document.getElementById('uzunlukSonucDeger').textContent = `${sonuc.toFixed(6).replace(/\.?0+$/, '')} ${hedef}`;
+            document.getElementById('uzunlukFormul').textContent = `${deger} ${kaynak} = ${metreValue.toFixed(4)} m → ${sonuc.toFixed(6).replace(/\.?0+$/, '')} ${hedef}`;
+            sonucEl.style.display = 'block';
+        }
+
+        // ----- Yardımcı Fonksiyonlar -----
+        function birimAd(k) {
+            const m = { C: 'Celsius', F: 'Fahrenheit', K: 'Kelvin' };
+            return m[k] || k;
+        }
+        function birimSymbol(k) {
+            const m = { C: '°C', F: '°F', K: 'K' };
+            return m[k] || k;
+        }
+        function birimUzunlukAd(k) {
+            const m = { m: 'Metre', km: 'Kilometre', mi: 'Mil' };
+            return m[k] || k;
+        }
+
+        // Enter ile dönüştür
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                const aktif = document.querySelector('.tab-panel.active').id;
+                if (aktif === 'panelSicaklik') sicaklikDonustur();
+                else uzunlukDonustur();
+            }
+        });
+    </script>
+</body>
+
+</html>

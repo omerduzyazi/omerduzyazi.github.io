@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Hesaplama - Ömer Can Düzyazı</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .app-container {
+            max-width: 580px;
+            margin: 40px auto;
+            padding: 40px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .app-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 1.7em;
+            margin-bottom: 8px;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        .app-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .form-group-app {
+            margin-bottom: 20px;
+        }
+
+        .form-group-app label {
+            display: block;
+            margin-bottom: 7px;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-group-app input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        .form-group-app input[type="text"]:focus {
+            outline: none;
+            border-color: #1abc9c;
+            box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.15);
+            background-color: #fff;
+        }
+
+        .weight-info {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .weight-badge {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .weight-badge.vize {
+            background-color: #ebf1f7;
+            border: 1px solid #c5dce7;
+            color: #2c3e50;
+        }
+
+        .weight-badge.final {
+            background-color: #e8f8f5;
+            border: 1px solid #a9dfbf;
+            color: #1abc9c;
+        }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 14px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-calculate:hover {
+            background-color: #16a085;
+        }
+
+        .btn-calculate:active {
+            transform: scale(0.98);
+        }
+
+        .result-box {
+            display: none;
+            margin-top: 28px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .result-header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .result-body {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row .label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .result-value {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .result-value.gecti {
+            color: #1abc9c;
+        }
+
+        .result-value.kaldi {
+            color: #e74c3c;
+        }
+
+        .result-value.ortalama {
+            color: #2c3e50;
+        }
+
+        .result-value.harf {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+
+        .error-msg {
+            display: none;
+            margin-top: 15px;
+            padding: 12px 16px;
+            background-color: #fdecea;
+            border: 1px solid #f5c6cb;
+            border-radius: 6px;
+            color: #c0392b;
+            font-size: 14px;
+        }
+
+        .reset-btn {
+            width: 100%;
+            margin-top: 12px;
+            padding: 10px;
+            background-color: transparent;
+            border: 2px solid #bdc3c7;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav class="top-nav">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkımda</a></li>
+                <li><a href="interests.html">İlgi Alanlarım</a></li>
+                <li><a href="contacts.html">İletişim</a></li>
+                <li><a href="flexbox.html">Flexbox</a></li>
+                <li><a href="lab-position.html">Position</a></li>
+                <li><a href="not-hesaplama.html" class="active">Not Hesaplama</a></li>
+                <li><a href="birim-donusturucu.html">Birim Dönüştürücü</a></li>
+            </ul>
+        </nav>
+
+        <header class="main-header">
+            <h1>Not Hesaplama</h1>
+            <p class="intro-p">Vize ve final notunuzu girerek ortalama, harf notu ve durumunuzu öğrenin.</p>
+        </header>
+
+        <main style="padding: 20px;">
+            <div class="app-container">
+                <h2 class="app-title">📊 Not Hesaplama Aracı</h2>
+                <p class="app-subtitle">Uygulama-1 — Vize %40 · Final %60</p>
+
+                <div class="weight-info">
+                    <div class="weight-badge vize">🎯 Vize Ağırlığı: %40</div>
+                    <div class="weight-badge final">🏆 Final Ağırlığı: %60</div>
+                </div>
+
+                <div class="form-group-app">
+                    <label for="adSoyad">Ad Soyad:</label>
+                    <input type="text" id="adSoyad" placeholder="Örn: Ömer Can Düzyazı">
+                </div>
+
+                <div class="form-group-app">
+                    <label for="vizeNotu">Vize Notu (0-100):</label>
+                    <input type="text" id="vizeNotu" placeholder="Örn: 75">
+                </div>
+
+                <div class="form-group-app">
+                    <label for="finalNotu">Final Notu (0-100):</label>
+                    <input type="text" id="finalNotu" placeholder="Örn: 85">
+                </div>
+
+                <button class="btn-calculate" onclick="hesapla()">Hesapla</button>
+                <button class="reset-btn" onclick="sifirla()">🔄 Temizle</button>
+
+                <div class="error-msg" id="errorMsg"></div>
+
+                <div class="result-box" id="resultBox">
+                    <div class="result-header" id="resultName">📋 Sonuç</div>
+                    <div class="result-body">
+                        <div class="result-row">
+                            <span class="label">Ortalama:</span>
+                            <span class="result-value ortalama" id="resOrtalama"></span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Harf Notu:</span>
+                            <span class="result-value harf" id="resHarf"></span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Durum:</span>
+                            <span class="result-value" id="resDurum"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Ömer Can Düzyazı - Kişisel Portfolyo</p>
+        </footer>
+    </div>
+
+    <script>
+        function hesapla() {
+            const adSoyad = document.getElementById('adSoyad').value.trim();
+            const vizeStr = document.getElementById('vizeNotu').value.trim();
+            const finalStr = document.getElementById('finalNotu').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+            const resultBox = document.getElementById('resultBox');
+
+            errorMsg.style.display = 'none';
+            resultBox.style.display = 'none';
+
+            if (!adSoyad) {
+                errorMsg.textContent = '⚠️ Lütfen Ad Soyad alanını doldurun.';
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            const vize = parseFloat(vizeStr);
+            const final = parseFloat(finalStr);
+
+            if (isNaN(vize) || isNaN(final)) {
+                errorMsg.textContent = '⚠️ Lütfen geçerli sayısal değerler girin.';
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            if (vize < 0 || vize > 100 || final < 0 || final > 100) {
+                errorMsg.textContent = '⚠️ Notlar 0 ile 100 arasında olmalıdır.';
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            const ortalama = (vize * 0.40) + (final * 0.60);
+            const harf = harfNotuHesapla(ortalama);
+            const durum = ortalama >= 50 ? 'GEÇTİ ✅' : 'KALDI ❌';
+            const durumClass = ortalama >= 50 ? 'gecti' : 'kaldi';
+
+            document.getElementById('resultName').textContent = `📋 ${adSoyad} — Sonuç`;
+            document.getElementById('resOrtalama').textContent = ortalama.toFixed(2);
+            document.getElementById('resHarf').textContent = harf;
+
+            const durumEl = document.getElementById('resDurum');
+            durumEl.textContent = durum;
+            durumEl.className = 'result-value ' + durumClass;
+
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function harfNotuHesapla(ort) {
+            if (ort >= 90) return 'AA';
+            if (ort >= 85) return 'BA';
+            if (ort >= 80) return 'BB';
+            if (ort >= 75) return 'CB';
+            if (ort >= 70) return 'CC';
+            if (ort >= 65) return 'DC';
+            if (ort >= 60) return 'DD';
+            if (ort >= 50) return 'FD';
+            return 'FF';
+        }
+
+        function sifirla() {
+            document.getElementById('adSoyad').value = '';
+            document.getElementById('vizeNotu').value = '';
+            document.getElementById('finalNotu').value = '';
+            document.getElementById('errorMsg').style.display = 'none';
+            document.getElementById('resultBox').style.display = 'none';
+        }
+
+        // Enter tuşu ile hesapla
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') hesapla();
+        });
+    </script>
+</body>
+
+</html>

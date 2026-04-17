@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakkımda - Ömer Can Düzyazı</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
-<div class="wrapper">
-    <nav class="top-nav">
-        <ul>
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="about.html" class="active">Hakkımda</a></li>
-            <li><a href="interests.html">İlgi Alanlarım</a></li>
-            <li><a href="contacts.html">İletişim</a></li>
-            <li><a href="flexbox.html">Flexbox</a></li>
-            <li><a href="lab-position.html">Position</a></li>
-        </ul>
-    </nav>
-    <header class="main-header">
-        <h1>Hakkımda</h1>
-        <p class="intro-p">Eğitimim, hedeflerim ve yazılım dünyasındaki yolculuğum.</p>
-    </header>
-    <main style="padding: 20px;">
-        <p>Merhaba, ben <strong>Ömer Can Düzyazı</strong>. Yazılım geliştirmeye, özellikle web teknolojilerine büyük ilgi duyuyorum.</p>
-        <p><strong>Problem çözmeyi</strong> ve yeni teknolojiler öğrenmeyi çok severim. <em>Disiplinli ve araştırmacı</em> bir yapıya sahibim.</p>
-        <blockquote style="background: #f9f9f9; border-left: 10px solid #ccc; margin: 1.5em 10px; padding: 0.5em 10px;">
-            "Başarı, küçük çabaların her gün tekrar edilmesidir."
-        </blockquote>
-        <h2>Eğitim ve Hedefler</h2>
-        <ul>
-            <li>Bilgisayar Programcılığı / Mühendisliği Eğitimi</li>
-            <li>Web Geliştirme Uzmanlığı (HTML, CSS, JS, Backend)</li>
-            <li>Yazılım sektöründe başarılı bir geliştirici olmak</li>
-        </ul>
+    <div class="wrapper">
+        <nav class="top-nav">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html" class="active">Hakkımda</a></li>
+                <li><a href="interests.html">İlgi Alanlarım</a></li>
+                <li><a href="contacts.html">İletişim</a></li>
+                <li><a href="flexbox.html">Flexbox</a></li>
+                <li><a href="lab-position.html">Position</a></li>
+                <li><a href="not-hesaplama.html">Not Hesaplama</a></li>
+                <li><a href="birim-donusturucu.html">Birim Dönüştürücü</a></li>
+            </ul>
+        </nav>
+        <header class="main-header">
+            <h1>Hakkımda</h1>
+            <p class="intro-p">Eğitimim, hedeflerim ve yazılım dünyasındaki yolculuğum.</p>
+        </header>
+        <main style="padding: 20px;">
+            <p>Merhaba, ben <strong>Ömer Can Düzyazı</strong>. Yazılım geliştirmeye, özellikle web teknolojilerine büyük
+                ilgi duyuyorum.</p>
+            <p><strong>Problem çözmeyi</strong> ve yeni teknolojiler öğrenmeyi çok severim. <em>Disiplinli ve
+                    araştırmacı</em> bir yapıya sahibim.</p>
+            <blockquote
+                style="background: #f9f9f9; border-left: 10px solid #ccc; margin: 1.5em 10px; padding: 0.5em 10px;">
+                "Başarı, küçük çabaların her gün tekrar edilmesidir."
+            </blockquote>
+            <h2>Eğitim ve Hedefler</h2>
+            <ul>
+                <li>Bilgisayar Programcılığı / Mühendisliği Eğitimi</li>
+                <li>Web Geliştirme Uzmanlığı (HTML, CSS, JS, Backend)</li>
+                <li>Yazılım sektöründe başarılı bir geliştirici olmak</li>
+            </ul>
 
-        <div class="contact-container">
-            <h2 class="form-title">Detaylı İletişim Formu</h2>
-            <form action="#" method="POST">
-                <label for="fullname"><strong>Ad Soyad:</strong></label>
-                <input type="text" id="fullname" name="fullname" placeholder="Örn: Asaf Karataş" required>
+            <div class="contact-container">
+                <h2 class="form-title">Detaylı İletişim Formu</h2>
+                <form action="#" method="POST">
+                    <label for="fullname"><strong>Ad Soyad:</strong></label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Örn: Asaf Karataş" required>
 
-                <label for="email"><strong>E-posta Adresi:</strong></label>
-                <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
+                    <label for="email"><strong>E-posta Adresi:</strong></label>
+                    <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
 
-                <label for="password"><strong>Başvuru Takip Şifresi:</strong></label>
-                <input type="password" id="password" name="password" placeholder="Şifrenizi girin">
+                    <label for="password"><strong>Başvuru Takip Şifresi:</strong></label>
+                    <input type="password" id="password" name="password" placeholder="Şifrenizi girin">
 
-                <fieldset class="form-group">
-                    <legend><strong>İletişim Tercihi:</strong></legend>
-                    <label><input type="radio" name="contact_pref" value="email" checked> Bana e-posta ile ulaşın</label>
-                    <label><input type="radio" name="contact_pref" value="phone"> Bana telefonla ulaşın</label>
-                </fieldset>
+                    <fieldset class="form-group">
+                        <legend><strong>İletişim Tercihi:</strong></legend>
+                        <label><input type="radio" name="contact_pref" value="email" checked> Bana e-posta ile
+                            ulaşın</label>
+                        <label><input type="radio" name="contact_pref" value="phone"> Bana telefonla ulaşın</label>
+                    </fieldset>
 
-                <fieldset class="form-group">
-                    <legend><strong>İlgi Alanları / Yetenekler:</strong></legend>
-                    <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
-                    <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
-                    <label><input type="checkbox" name="skills" value="Algoritma"> Algoritma</label>
-                </fieldset>
+                    <fieldset class="form-group">
+                        <legend><strong>İlgi Alanları / Yetenekler:</strong></legend>
+                        <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                        <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                        <label><input type="checkbox" name="skills" value="Algoritma"> Algoritma</label>
+                    </fieldset>
 
-                <label for="subject"><strong>Konu:</strong></label>
-                <select id="subject" name="subject" required>
-                    <option value="">Lütfen bir konu seçin...</option>
-                    <option value="İş Teklifi">İş Teklifi</option>
-                    <option value="Soru">Soru</option>
-                    <option value="Geri Bildirim">Geri Bildirim</option>
-                </select>
+                    <label for="subject"><strong>Konu:</strong></label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Lütfen bir konu seçin...</option>
+                        <option value="İş Teklifi">İş Teklifi</option>
+                        <option value="Soru">Soru</option>
+                        <option value="Geri Bildirim">Geri Bildirim</option>
+                    </select>
 
-                <label for="file-upload"><strong>Özgeçmiş (CV) veya Fotoğraf Yükle:</strong></label>
-                <input type="file" id="file-upload" name="file-upload">
+                    <label for="file-upload"><strong>Özgeçmiş (CV) veya Fotoğraf Yükle:</strong></label>
+                    <input type="file" id="file-upload" name="file-upload">
 
-                <label for="message"><strong>Mesajınız:</strong></label>
-                <textarea id="message" name="message" rows="7" placeholder="Detaylı mesajınızı buraya yazabilirsiniz..."></textarea>
+                    <label for="message"><strong>Mesajınız:</strong></label>
+                    <textarea id="message" name="message" rows="7"
+                        placeholder="Detaylı mesajınızı buraya yazabilirsiniz..."></textarea>
 
-                <div class="form-buttons">
-                    <input type="submit" value="Gönder" class="btn-submit">
-                    <input type="reset" value="Temizle" class="btn-reset">
-                </div>
-            </form>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2026 Ömer Can Düzyazı - Kişisel Portfolyo</p>
-    </footer>
-</div>
+                    <div class="form-buttons">
+                        <input type="submit" value="Gönder" class="btn-submit">
+                        <input type="reset" value="Temizle" class="btn-reset">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2026 Ömer Can Düzyazı - Kişisel Portfolyo</p>
+        </footer>
+    </div>
 </body>
+
 </html>

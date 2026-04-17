@@ -1,92 +1,103 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim - Ömer Can Düzyazı</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
-<div class="wrapper">
-    <nav class="top-nav">
-        <ul>
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="about.html">Hakkımda</a></li>
-            <li><a href="interests.html">İlgi Alanlarım</a></li>
-            <li><a href="contacts.html" class="active">İletişim</a></li>
-            <li><a href="flexbox.html">Flexbox</a></li>
-            <li><a href="lab-position.html">Position</a></li>
-        </ul>
-    </nav>
-    <header class="main-header">
-        <h1>İletişim</h1>
-        <p class="intro-p">Benimle aşağıdaki kanallardan iletişim kurabilirsiniz.</p>
-    </header>
-    <main style="padding: 20px;">
-        <p>Bana ulaşmak veya projelerimde iş birliği yapmak isterseniz aşağıdaki iletişim kanallarını kullanabilirsiniz:</p>
-        
-        <h3>E-posta</h3>
-        <p><a href="mailto:omerduzyazi@example.com" style="color: #007bff; text-decoration: none;">omerduzyazi@example.com</a></p>
-        
-        <h3>Sosyal Medya & Profesyonel Ağlar</h3>
-        <ul style="list-style-type: none; padding: 0;">
-            <li style="margin-bottom: 10px;">
-                <strong>GitHub:</strong> <a href="https://github.com/omerduzyazi" target="_blank" style="color: #007bff; text-decoration: none;">github.com/omerduzyazi</a>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/omerduzyazi" target="_blank" style="color: #007bff; text-decoration: none;">linkedin.com/in/omerduzyazi</a>
-            </li>
-        </ul>
+    <div class="wrapper">
+        <nav class="top-nav">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkımda</a></li>
+                <li><a href="interests.html">İlgi Alanlarım</a></li>
+                <li><a href="contacts.html" class="active">İletişim</a></li>
+                <li><a href="flexbox.html">Flexbox</a></li>
+                <li><a href="lab-position.html">Position</a></li>
+                <li><a href="not-hesaplama.html">Not Hesaplama</a></li>
+                <li><a href="birim-donusturucu.html">Birim Dönüştürücü</a></li>
+            </ul>
+        </nav>
+        <header class="main-header">
+            <h1>İletişim</h1>
+            <p class="intro-p">Benimle aşağıdaki kanallardan iletişim kurabilirsiniz.</p>
+        </header>
+        <main style="padding: 20px;">
+            <p>Bana ulaşmak veya projelerimde iş birliği yapmak isterseniz aşağıdaki iletişim kanallarını
+                kullanabilirsiniz:</p>
 
-        <div class="contact-container">
-            <h2 class="form-title">Detaylı İletişim Formu</h2>
-            <form action="#" method="POST">
-                <label for="fullname"><strong>Ad Soyad:</strong></label>
-                <input type="text" id="fullname" name="fullname" placeholder="Örn: Asaf Karataş" required>
+            <h3>E-posta</h3>
+            <p><a href="mailto:omerduzyazi@example.com"
+                    style="color: #007bff; text-decoration: none;">omerduzyazi@example.com</a></p>
 
-                <label for="email"><strong>E-posta Adresi:</strong></label>
-                <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
+            <h3>Sosyal Medya & Profesyonel Ağlar</h3>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="margin-bottom: 10px;">
+                    <strong>GitHub:</strong> <a href="https://github.com/omerduzyazi" target="_blank"
+                        style="color: #007bff; text-decoration: none;">github.com/omerduzyazi</a>
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/omerduzyazi" target="_blank"
+                        style="color: #007bff; text-decoration: none;">linkedin.com/in/omerduzyazi</a>
+                </li>
+            </ul>
 
-                <label for="password"><strong>Başvuru Takip Şifresi:</strong></label>
-                <input type="password" id="password" name="password" placeholder="Şifrenizi girin">
+            <div class="contact-container">
+                <h2 class="form-title">Detaylı İletişim Formu</h2>
+                <form action="#" method="POST">
+                    <label for="fullname"><strong>Ad Soyad:</strong></label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Örn: Asaf Karataş" required>
 
-                <fieldset class="form-group">
-                    <legend><strong>İletişim Tercihi:</strong></legend>
-                    <label><input type="radio" name="contact_pref" value="email" checked> Bana e-posta ile ulaşın</label>
-                    <label><input type="radio" name="contact_pref" value="phone"> Bana telefonla ulaşın</label>
-                </fieldset>
+                    <label for="email"><strong>E-posta Adresi:</strong></label>
+                    <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
 
-                <fieldset class="form-group">
-                    <legend><strong>İlgi Alanları / Yetenekler:</strong></legend>
-                    <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
-                    <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
-                    <label><input type="checkbox" name="skills" value="Algoritma"> Algoritma</label>
-                </fieldset>
+                    <label for="password"><strong>Başvuru Takip Şifresi:</strong></label>
+                    <input type="password" id="password" name="password" placeholder="Şifrenizi girin">
 
-                <label for="subject"><strong>Konu:</strong></label>
-                <select id="subject" name="subject" required>
-                    <option value="">Lütfen bir konu seçin...</option>
-                    <option value="İş Teklifi">İş Teklifi</option>
-                    <option value="Soru">Soru</option>
-                    <option value="Geri Bildirim">Geri Bildirim</option>
-                </select>
+                    <fieldset class="form-group">
+                        <legend><strong>İletişim Tercihi:</strong></legend>
+                        <label><input type="radio" name="contact_pref" value="email" checked> Bana e-posta ile
+                            ulaşın</label>
+                        <label><input type="radio" name="contact_pref" value="phone"> Bana telefonla ulaşın</label>
+                    </fieldset>
 
-                <label for="file-upload"><strong>Özgeçmiş (CV) veya Fotoğraf Yükle:</strong></label>
-                <input type="file" id="file-upload" name="file-upload">
+                    <fieldset class="form-group">
+                        <legend><strong>İlgi Alanları / Yetenekler:</strong></legend>
+                        <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                        <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                        <label><input type="checkbox" name="skills" value="Algoritma"> Algoritma</label>
+                    </fieldset>
 
-                <label for="message"><strong>Mesajınız:</strong></label>
-                <textarea id="message" name="message" rows="7" placeholder="Detaylı mesajınızı buraya yazabilirsiniz..."></textarea>
+                    <label for="subject"><strong>Konu:</strong></label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Lütfen bir konu seçin...</option>
+                        <option value="İş Teklifi">İş Teklifi</option>
+                        <option value="Soru">Soru</option>
+                        <option value="Geri Bildirim">Geri Bildirim</option>
+                    </select>
 
-                <div class="form-buttons">
-                    <input type="submit" value="Gönder" class="btn-submit">
-                    <input type="reset" value="Temizle" class="btn-reset">
-                </div>
-            </form>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2026 Ömer Can Düzyazı - Kişisel Portfolyo</p>
-    </footer>
-</div>
+                    <label for="file-upload"><strong>Özgeçmiş (CV) veya Fotoğraf Yükle:</strong></label>
+                    <input type="file" id="file-upload" name="file-upload">
+
+                    <label for="message"><strong>Mesajınız:</strong></label>
+                    <textarea id="message" name="message" rows="7"
+                        placeholder="Detaylı mesajınızı buraya yazabilirsiniz..."></textarea>
+
+                    <div class="form-buttons">
+                        <input type="submit" value="Gönder" class="btn-submit">
+                        <input type="reset" value="Temizle" class="btn-reset">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2026 Ömer Can Düzyazı - Kişisel Portfolyo</p>
+        </footer>
+    </div>
 </body>
+
 </html>
